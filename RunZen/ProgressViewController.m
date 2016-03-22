@@ -121,60 +121,7 @@
     else {
         NSLog(@"results, %@", results);
     }
-    
- //   NSCalendar *gregorianz = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian] ;
-  //  NSDateComponents *comps = [gregorianz components:NSCalendarUnitWeekday fromDate:[NSDate date]];
 
-    //long weekday = [comps weekday];
-    //NSLog(@"the wee %ld",weekday);
-    //self.lastSunday = [[NSDate date] dateByAddingTimeInterval:-3600*24*(weekday-1)];
-   // self.nextSaturday = [[NSDate date] dateByAddingTimeInterval:3600*24*((7 - weekday)%7)];
-    
-    /*
-
-    NSDate *today = [[NSDate alloc] init];
-    
-    
-    NSCalendar *gregorian = [[NSCalendar alloc]
-                             initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    
-    // Get the weekday component of the current date
-    NSDateComponents *weekdayComponents = [gregorian components:NSCalendarUnitWeekday
-                                                       fromDate:today];
-    
-    NSDateComponents *componentsToSubtract = [[NSDateComponents alloc] init];
-    [componentsToSubtract setDay: 0 - ([weekdayComponents weekday] - 1)];
-    
-    NSDate *beginningOfWeek = [gregorian dateByAddingComponents:componentsToSubtract
-                                                         toDate:today options:0];
-    
-    NSDateComponents *componentsToAdd = [[NSDateComponents alloc] init];
-    [componentsToAdd setDay: ((7 - [weekdayComponents weekday])%7)];
-    
-    NSDate *endingOfWeek = [gregorian dateByAddingComponents:componentsToAdd
-                                                         toDate:today options:0];
-    
-
-    
-    NSDateComponents *beginningComponents =
-    [gregorian components:(NSCalendarUnitYear | NSCalendarUnitMonth|
-                           NSCalendarUnitDay) fromDate: beginningOfWeek];
-
-    self.lastSunday = [gregorian dateFromComponents:beginningComponents];
-    NSLog(@"begnningOfWeek, %@", self.lastSunday);
-    
-    NSDateComponents *endingComponents =
-    [gregorian components:(NSCalendarUnitYear | NSCalendarUnitMonth|
-                           NSCalendarUnitDay) fromDate: endingOfWeek];
-    
-    self.nextSaturday = [gregorian dateFromComponents:endingComponents];
-    NSLog(@"endingOfWeek, %@", self.nextSaturday);
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    NSDate *lastSunday = [defaults objectForKey:@"firstDateRange"];
-    
-    NSDate *nextSaturday = [defaults objectForKey:@"lastDateRange"];*/
     
     
     double sum = 0;
@@ -220,8 +167,16 @@
     {
         SLComposeViewController *tweetSheet = [SLComposeViewController
                                                composeViewControllerForServiceType:SLServiceTypeTwitter];
-        [tweetSheet setInitialText:[@"I've run " stringByAppendingString:[self.runSumString stringByAppendingString:@" miles this week!"]]];
+        [tweetSheet setInitialText:[@"I've run " stringByAppendingString:[self.runSumString stringByAppendingString:@" miles this week! #RunZenApp"]]];
         [self presentViewController:tweetSheet animated:YES completion:nil];
+    }
+    else {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Please Login to a Twitter Account to Tweet Your Progress" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
     }
     
 }
@@ -230,12 +185,21 @@
     if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
         SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
         
-        [controller setInitialText:[@"I've run " stringByAppendingString:[self.runSumString stringByAppendingString:@" miles this week!"]]];
+        [controller setInitialText:[@"I've run " stringByAppendingString:[self.runSumString stringByAppendingString:@" miles this week! #RunZenApp"]]];
         [self presentViewController:controller animated:YES completion:Nil];
         
     }
     
-    NSLog(@"FB");
+    else {
+      
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Please Login to a Facebook Account to Share Your Progress" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+            [alertController addAction:ok];
+            
+            [self presentViewController:alertController animated:YES completion:nil];
+        
+    }
     
 }
 
