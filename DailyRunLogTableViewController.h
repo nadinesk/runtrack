@@ -15,4 +15,6 @@
 
 @property (strong) NSMutableArray *theMiles;
 
+@property UIView *nomatchesView;
+
 @end

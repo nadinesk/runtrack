@@ -17,6 +17,10 @@
 		E91F1EB21C96076700C4DA84 /* Week.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F1EAC1C96076700C4DA84 /* Week.m */; };
 		E91F1EB41C96076700C4DA84 /* Day.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F1EB01C96076700C4DA84 /* Day.m */; };
 		E940E7811CA107E10046895E /* Untitled-5.png in Resources */ = {isa = PBXBuildFile; fileRef = E940E7801CA107E10046895E /* Untitled-5.png */; };
+		E940E78B1CA3E8230046895E /* goal.png in Resources */ = {isa = PBXBuildFile; fileRef = E940E78A1CA3E8230046895E /* goal.png */; };
+		E940E7911CA3F80C0046895E /* run.png in Resources */ = {isa = PBXBuildFile; fileRef = E940E7901CA3F80C0046895E /* run.png */; };
+		E940E79B1CA4D2BE0046895E /* progress.png in Resources */ = {isa = PBXBuildFile; fileRef = E940E79A1CA4D2BE0046895E /* progress.png */; };
+		E940E79D1CA4D4B20046895E /* log.png in Resources */ = {isa = PBXBuildFile; fileRef = E940E79C1CA4D4B20046895E /* log.png */; };
 		E99ACFA51CA1016B0022BE12 /* palmedit.png in Resources */ = {isa = PBXBuildFile; fileRef = E99ACFA41CA1016B0022BE12 /* palmedit.png */; };
 		E99ACFA71CA102590022BE12 /* palmedit1.png in Resources */ = {isa = PBXBuildFile; fileRef = E99ACFA61CA102590022BE12 /* palmedit1.png */; };
 		E9D91B751C9615BE007A2A99 /* WeekViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D91B741C9615BE007A2A99 /* WeekViewController.m */; };
@@ -50,6 +54,10 @@
 		E91F1EAF1C96076700C4DA84 /* Day.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Day.h; path = RunZen/Day.h; sourceTree = "<group>"; };
 		E91F1EB01C96076700C4DA84 /* Day.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Day.m; path = RunZen/Day.m; sourceTree = "<group>"; };
 		E940E7801CA107E10046895E /* Untitled-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Untitled-5.png"; sourceTree = "<group>"; };
+		E940E78A1CA3E8230046895E /* goal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goal.png; sourceTree = "<group>"; };
+		E940E7901CA3F80C0046895E /* run.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = run.png; sourceTree = "<group>"; };
+		E940E79A1CA4D2BE0046895E /* progress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progress.png; sourceTree = "<group>"; };
+		E940E79C1CA4D4B20046895E /* log.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = log.png; sourceTree = "<group>"; };
 		E99ACFA41CA1016B0022BE12 /* palmedit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palmedit.png; sourceTree = "<group>"; };
 		E99ACFA61CA102590022BE12 /* palmedit1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palmedit1.png; sourceTree = "<group>"; };
 		E9D91B731C9615BE007A2A99 /* WeekViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekViewController.h; sourceTree = "<group>"; };
@@ -95,10 +103,14 @@
 				E91F1EAB1C96076700C4DA84 /* Week.h */,
 				E91F1EAC1C96076700C4DA84 /* Week.m */,
 				E91F1EAF1C96076700C4DA84 /* Day.h */,
+				E91F1EB01C96076700C4DA84 /* Day.m */,
+				E940E7901CA3F80C0046895E /* run.png */,
 				E99ACFA61CA102590022BE12 /* palmedit1.png */,
+				E940E78A1CA3E8230046895E /* goal.png */,
 				E940E7801CA107E10046895E /* Untitled-5.png */,
 				E99ACFA41CA1016B0022BE12 /* palmedit.png */,
-				E91F1EB01C96076700C4DA84 /* Day.m */,
+				E940E79A1CA4D2BE0046895E /* progress.png */,
+				E940E79C1CA4D4B20046895E /* log.png */,
 				E9EC44C01C9F86D400B3CBED /* TwitterLogo_#55acee.png */,
 				E9EC44C21C9F939400B3CBED /* FB-f-Logo__blue_50.png */,
 				E9EC44BA1C9E40FB00B3CBED /* runclip.svg */,
@@ -209,10 +221,14 @@
 				E9EC44BD1C9E413600B3CBED /* runclip.png in Resources */,
 				E91F1EA21C96070600C4DA84 /* LaunchScreen.storyboard in Resources */,
 				E9EC44C31C9F939400B3CBED /* FB-f-Logo__blue_50.png in Resources */,
+				E940E7911CA3F80C0046895E /* run.png in Resources */,
 				E9EC44C11C9F86D400B3CBED /* TwitterLogo_#55acee.png in Resources */,
+				E940E78B1CA3E8230046895E /* goal.png in Resources */,
 				E99ACFA71CA102590022BE12 /* palmedit1.png in Resources */,
 				E91F1E9F1C96070600C4DA84 /* Assets.xcassets in Resources */,
 				E940E7811CA107E10046895E /* Untitled-5.png in Resources */,
+				E940E79B1CA4D2BE0046895E /* progress.png in Resources */,
+				E940E79D1CA4D4B20046895E /* log.png in Resources */,
 				E9EC44BB1C9E40FB00B3CBED /* runclip.svg in Resources */,
 				E91F1E9A1C96070600C4DA84 /* Main.storyboard in Resources */,
 				E99ACFA51CA1016B0022BE12 /* palmedit.png in Resources */,

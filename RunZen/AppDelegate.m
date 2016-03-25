@@ -25,7 +25,29 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Day"
                                               inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
+  
+
+
+    [[UITabBar appearance] setTintColor:[UIColor colorWithRed:175.0/255.0 green:195.0/255.0 blue:177.0/255.0 alpha:1.0]];
+
+    [[UITabBar appearance] setBarTintColor:[UIColor whiteColor]];
     
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    UITabBar *tabBar = tabBarController.tabBar;
+    UITabBarItem *tabBarItem1 = [tabBar.items objectAtIndex:0];
+    UITabBarItem *tabBarItem2 = [tabBar.items objectAtIndex:1];
+    UITabBarItem *tabBarItem3 = [tabBar.items objectAtIndex:2];
+    UITabBarItem *tabBarItem4 = [tabBar.items objectAtIndex:3];
+    
+    tabBarItem1.title = @"Goal";
+    tabBarItem2.title = @"Run";
+    tabBarItem3.title = @"Progress";
+    tabBarItem4.title = @"Log";
+    
+    [tabBarItem1 setImage:[[UIImage imageNamed:@"goal"] imageWithRenderingMode:UIImageRenderingModeAutomatic]];
+    [tabBarItem2 setImage:[[UIImage imageNamed:@"run"] imageWithRenderingMode:UIImageRenderingModeAutomatic]];
+    [tabBarItem3 setImage:[[UIImage imageNamed:@"progress"] imageWithRenderingMode:UIImageRenderingModeAutomatic]];
+    [tabBarItem4 setImage:[[UIImage imageNamed:@"log"] imageWithRenderingMode:UIImageRenderingModeAutomatic]];
     
 /*
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

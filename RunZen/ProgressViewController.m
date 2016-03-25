@@ -82,7 +82,7 @@
     
     NSNumber *weekMiles = [defaults objectForKey:@"weekMilesGoal"];
     
-    NSString *weekMileString = [weekMiles stringValue];
+    NSString *weekMileString = [NSString stringWithFormat:@"%.2f", [weekMiles doubleValue]];
     
     if (weekMiles != NULL)
     {
@@ -97,7 +97,7 @@
     
     [self addWeeklyMiles];
     
-    NSString *runString = [self.runSum stringValue];
+    NSString *runString = [NSString stringWithFormat:@"%.2f", [self.runSum doubleValue]];
     
     self.dailySum.text = [runString stringByAppendingString:@" mi"];
 
@@ -124,7 +124,7 @@
 
     
     
-    double sum = 0;
+    double sum = 0.0;
 
     for (NSObject *result in results)
     {
@@ -137,7 +137,7 @@
 
                 NSString *milesRunDayString = [result valueForKey:@"miles"];
                 
-                NSNumber *milesRunDayNum = [NSNumber numberWithInteger: [milesRunDayString integerValue]];
+                NSNumber *milesRunDayNum = [NSNumber numberWithDouble:[milesRunDayString doubleValue]];
                 
                 double milesRunDayDouble = [milesRunDayNum doubleValue];
                 
@@ -154,9 +154,15 @@
     
     NSLog(@"sumasf, %f ", sum);
     
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [formatter setMaximumFractionDigits:2];
+    [formatter setRoundingMode: NSNumberFormatterRoundUp];
+    
     self.runSum = [NSNumber numberWithDouble:sum];
     
-    self.runSumString = [self.runSum stringValue];
+    self.runSumString = [formatter stringFromNumber: [NSNumber numberWithFloat:sum]];
     
    
 

@@ -54,7 +54,29 @@
         NSLog(@"%@, %@", error, error.localizedDescription);
     }
     
+    self.nomatchesView = [[UIView alloc] initWithFrame:self.view.frame];
+    self.nomatchesView.backgroundColor = [UIColor clearColor];
     
+    UILabel *matchesLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,320,320)];
+    matchesLabel.font = [UIFont boldSystemFontOfSize:18];
+    [matchesLabel setMinimumScaleFactor:12.0/[UIFont labelFontSize]];
+    matchesLabel.numberOfLines = 1;
+
+    matchesLabel.shadowColor = [UIColor lightTextColor];
+    matchesLabel.textColor = [UIColor darkGrayColor];
+    matchesLabel.shadowOffset = CGSizeMake(0, 1);
+    matchesLabel.backgroundColor = [UIColor clearColor];
+    matchesLabel.textAlignment =  NSTextAlignmentCenter;
+    
+    //Here is the text for when there are no results
+    matchesLabel.text = @"No Data Available";
+    
+    
+        self.nomatchesView.hidden = YES;
+    [self.nomatchesView addSubview:matchesLabel];
+    [self.tableView insertSubview:self.nomatchesView belowSubview:self.tableView];
+    
+
     
 }
 
@@ -97,13 +119,32 @@
     id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
     
     NSInteger count = [sectionInfo numberOfObjects];
+    
+    if (count == 0 )
+    {
+        self.nomatchesView.hidden = NO;
+    }
+    else {
+        self.nomatchesView.hidden = YES;
+    }
+    
     return count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    
     UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"DailyRunCell" forIndexPath:indexPath];
     
+        cell.backgroundColor = [UIColor whiteColor];
+        cell.textLabel.textColor = [UIColor colorWithRed:175.0/255.0 green:195.0/255.0 blue:177.0/255.0 alpha:1 ];
+        cell.detailTextLabel.textColor = [UIColor colorWithRed:122.0/255.0 green:205.0/255.0 blue:131.0/255.0 alpha:1 ];
+ cell.detailTextLabel.frame = CGRectMake(0, 0, 320, 20);
+
+    
     [self configureCell:cell atIndexPath:indexPath];
+    
+    
     
     return cell;
 }
@@ -128,23 +169,17 @@
     cell.textLabel.text = [milesRunDailyString stringByAppendingString:@" mi"];
         
     
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
-    NSString *dateStr = [[record valueForKey:@"date"] description];
-    NSDate *date = [dateFormatter dateFromString:dateStr];
-    [dateFormatter setDateFormat:@"dd"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterShortStyle];
+
+    NSDate *date = [record valueForKey:@"date"];
+    NSString *dateString = [formatter stringFromDate:date];
     
-    NSDateFormatter *dateTimeFormatter = [[NSDateFormatter alloc] init];
-    [dateTimeFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
-    
-    
-    [dateTimeFormatter setDateFormat:@"yyyy-MM-dd 'at' hh:mm a"];
     
     //[cell.nameLabel setText:[f stringFromNumber:[record valueForKey:@"weight"]]];
-    cell.detailTextLabel.text = [dateTimeFormatter stringFromDate:date];
+    cell.detailTextLabel.text = dateString;
     // cell.timeLabel.text = [dateTimeFormatter stringFromDate:dateTime];
-    
-    
+ 
 }
 
 
@@ -166,6 +201,18 @@
             }
         }
     }
+    
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 80;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView
+indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 3;
 }
 
 

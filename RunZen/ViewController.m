@@ -43,13 +43,14 @@
 
     NSString *dailyMilesText = self.dailyMiles.text;
     
+    
     NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
     f.numberStyle = NSNumberFormatterDecimalStyle;
-    f.generatesDecimalNumbers = YES;
-    f.maximumFractionDigits = 2;
+    NSNumber *milesNumber = [f numberFromString:dailyMilesText];
     
-     NSNumber *milesNumber = [f numberFromString:dailyMilesText];
+
     
+    NSLog(@"milesNumber, %@", milesNumber);
     
     if (dailyMilesText && dailyMilesText.length) {
         //Create Entity
