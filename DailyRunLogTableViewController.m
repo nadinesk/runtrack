@@ -170,7 +170,7 @@
         
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateStyle:NSDateFormatterShortStyle];
+    [formatter setDateFormat:@"MM/dd/yy 'at' hh:mm a"];
 
     NSDate *date = [record valueForKey:@"date"];
     NSString *dateString = [formatter stringFromDate:date];

@@ -82,7 +82,7 @@
     
     NSNumber *weekMiles = [defaults objectForKey:@"weekMilesGoal"];
     
-    NSString *weekMileString = [NSString stringWithFormat:@"%.2f", [weekMiles doubleValue]];
+    NSString *weekMileString = [NSString stringWithFormat:@"%.1f", [weekMiles doubleValue]];
     
     if (weekMiles != NULL)
     {
@@ -97,7 +97,7 @@
     
     [self addWeeklyMiles];
     
-    NSString *runString = [NSString stringWithFormat:@"%.2f", [self.runSum doubleValue]];
+    NSString *runString = [NSString stringWithFormat:@"%.1f", [self.runSum doubleValue]];
     
     self.dailySum.text = [runString stringByAppendingString:@" mi"];
 

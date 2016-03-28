@@ -39,15 +39,26 @@
     UITabBarItem *tabBarItem3 = [tabBar.items objectAtIndex:2];
     UITabBarItem *tabBarItem4 = [tabBar.items objectAtIndex:3];
     
-    tabBarItem1.title = @"Goal";
+    tabBarItem1.title = @"Progress";
     tabBarItem2.title = @"Run";
-    tabBarItem3.title = @"Progress";
+    tabBarItem3.title = @"Goal";
     tabBarItem4.title = @"Log";
     
-    [tabBarItem1 setImage:[[UIImage imageNamed:@"goal"] imageWithRenderingMode:UIImageRenderingModeAutomatic]];
+
+    [tabBarItem1 setImage:[[UIImage imageNamed:@"progress"] imageWithRenderingMode:UIImageRenderingModeAutomatic]];
     [tabBarItem2 setImage:[[UIImage imageNamed:@"run"] imageWithRenderingMode:UIImageRenderingModeAutomatic]];
-    [tabBarItem3 setImage:[[UIImage imageNamed:@"progress"] imageWithRenderingMode:UIImageRenderingModeAutomatic]];
+    [tabBarItem3 setImage:[[UIImage imageNamed:@"goal"] imageWithRenderingMode:UIImageRenderingModeAutomatic]];
     [tabBarItem4 setImage:[[UIImage imageNamed:@"log"] imageWithRenderingMode:UIImageRenderingModeAutomatic]];
+    
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowColor = [UIColor blackColor];
+    shadow.shadowBlurRadius = 0.0;
+    shadow.shadowOffset = CGSizeMake(0.0, 0.0);
+    [[UINavigationBar appearance] setTitleTextAttributes: @{
+                                                            NSForegroundColorAttributeName :  [UIColor colorWithRed:103.0/255.0 green:92.0/255.0 blue:132.0/255.0 alpha:1.0],
+                                                            NSFontAttributeName : [UIFont fontWithName:@"Avenir Next" size:0.0f],
+                                                            NSShadowAttributeName : shadow
+                                                            }];
     
 /*
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
